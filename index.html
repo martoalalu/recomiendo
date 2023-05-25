@@ -777,6 +777,15 @@
       </div>
     </div>
 
+    <script>
+        var $grid = $('.row').isotope({
+          itemSelector: '.influencer-barrio',
+          layoutMode: 'fitRows'
+        });
+
+      $grid.isotope({filter: '.belgrano'});
+    </script>
+
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
