@@ -117,12 +117,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   padding-right: 0;
   background: transparent;
   border-bottom: 1px solid #43434d;
-  border-radius: 0; }
+  border-radius: 0; 
+text-align: center;}
   .form-control:active, .form-control:focus, .custom-select:active, .custom-select:focus {
     border-color: #0389ff;
     -webkit-box-shadow: none;
     box-shadow: none;
-    background: transparent; }
+    background: transparent;
+    text-align: center; }
 
 .gutter-v1 {
   margin-right: -20px;
