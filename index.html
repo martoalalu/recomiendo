@@ -69,13 +69,36 @@
 
       <div class="portfolio-wrapper">
         <!-- FILTERS GO HERE -->
+        <div class="filtros">
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <h2>Influencer</h2>
+            <select class="filter-select" value-group="influencer">
+              <option value="">Todos</option>
+              <option value=".lachicadelbrunch">☕ lachicadelbrunch</option>
+              <option value=".chicaelectrica">⚡ chicaelectrica</option>
+            </select>
+          </div>
+        
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <h2>Barrio</h2>
+            <select class="filter-select" value-group="barrio">
+              <option value="">Todos</option>
+              <option value=".belgrano">Belgrano</option>
+              <option value=".colegiales">Colegiales</option>
+              <option value=".nuñez">Núñez</option>
+              <option value=".palermo">Palermo</option>
+            </select>
+          </div>  
+      
+        </div>
 
 <!-- RESTORANES -->
 
         <div id="posts" class="row">
-          
+          <div class="grilla">
 
-          <div class="item web  col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
             <div class="influencer-barrio lachicadelbrunch belgrano">
               <a href="portfolio-single-3.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
                 <div class="overlay">
@@ -90,7 +113,7 @@
             </div>
           </div>
 
-          <div class="item  branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
             <div class="influencer-barrio lachicadelbrunch colegiales">
             <a href="portfolio-single-2.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="2">
               <div class="overlay">
@@ -105,7 +128,7 @@
           </div>
           </div>
 
-          <div class="item web  col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
             <div class="influencer-barrio chicaelectrica palermo">
             <a href="portfolio-single-3.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
               <div class="overlay">
@@ -120,7 +143,8 @@
           </div>
           </div>
 
-          <div class="item  branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <div class="influencer-barrio chicaelectrica nuñez">
             <a href="portfolio-single-3.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -132,8 +156,10 @@
               <img src="https://media-cdn.tripadvisor.com/media/photo-s/06/6b/9f/d7/elena.jpg" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
+        </div>
 
-          <div class="item web  col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <div class="influencer-barrio lachicadelbrunch belgrano">
             <a href="portfolio-single-3.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -145,6 +171,7 @@
               <img src="https://10619-2.s.cdn12.com/rests/original/105_507976485.jpg" class="lazyload  img-fluid" alt="Images" />
             </a>
           </div>
+        </div>
 
 
        </div>
@@ -260,14 +287,6 @@
       </div>
     </div>
 
-    <script>
-        var $grid = $('.row').isotope({
-          itemSelector: '.influencer-barrio',
-          layoutMode: 'fitRows'
-        });
-
-      $grid.isotope({filter: '.belgrano'});
-    </script>
 
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -281,6 +300,41 @@
     <script src="js/circle-progress.js"></script>
     <script src="js/imagesloaded.pkgd.js"></script>
     <script src="js/isotope.pkgd.min.js"></script>
+    <script>
+    
+      // init Isotope
+      
+      var $grid = $('.grilla').isotope({
+        // options
+        itemSelector: ".influencer-barrio",
+        layoutMode: 'fitRows'
+      });
+         
+      var filters = {};
+      
+      $('.filtros').on( 'change', function( event ) {
+        var $select = $( event.target );
+        // get group key
+        var filterGroup = $select.attr('value-group');
+        // set filter for group
+        filters[ filterGroup ] = event.target.value;
+        // combine filters
+        var filterValue = concatValues( filters );
+        // set filter for Isotope
+        $grid.isotope({ filter: filterValue });
+      });
+      
+      // flatten object by concatting values
+      function concatValues( obj ) {
+        var value = '';
+        for ( var prop in obj ) {
+          value += obj[ prop ];
+        }
+        return value;
+      }
+ 
+           
+          </script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/TweenMax.min.js"></script>
     <script src="js/ScrollMagic.min.js"></script>
