@@ -95,11 +95,12 @@
 
 <!-- RESTORANES -->
 
-        <div id="posts" class="row">
-          <div class="grilla">
-
-            <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+        <div id="posts" class="papa">
+         
+            
             <div class="influencer-barrio lachicadelbrunch belgrano">
+            <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            
               <a href="portfolio-single-3.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="1">
                 <div class="overlay">
                   <span class="wrap-icon icon-link2"></span>
@@ -112,9 +113,9 @@
               </a>
             </div>
           </div>
-
+          <div class="influencer-barrio lachicadelbrunch colegiales">
           <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-            <div class="influencer-barrio lachicadelbrunch colegiales">
+            
             <a href="portfolio-single-2.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="2">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -127,9 +128,10 @@
             </a>
           </div>
           </div>
-
+          
+          <div class="influencer-barrio chicaelectrica palermo">
           <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-            <div class="influencer-barrio chicaelectrica palermo">
+            
             <a href="portfolio-single-3.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -142,9 +144,9 @@
             </a>
           </div>
           </div>
-
+          <div class="influencer-barrio chicaelectrica nuñez">
           <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-            <div class="influencer-barrio chicaelectrica nuñez">
+           
             <a href="portfolio-single-3.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -157,9 +159,9 @@
             </a>
           </div>
         </div>
-
+        <div class="influencer-barrio lachicadelbrunch belgrano">
           <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
-            <div class="influencer-barrio lachicadelbrunch belgrano">
+            
             <a href="portfolio-single-3.html" class="portfolio-item ajax-load-page isotope-item gsap-reveal-img" data-id="3">
               <div class="overlay">
                 <span class="wrap-icon icon-link2"></span>
@@ -174,7 +176,7 @@
         </div>
 
 
-       </div>
+      
       </div>
 
 
@@ -208,15 +210,25 @@
               <div class="row">
                 <div class="col-lg-7 text-center mx-auto form-group">
                   <input type="text" class="form-control" placeholder="Usuario de Instagram - @ejemplo">
+                  
+   
+                  <p class="gsap-reveal-hero">
+                    <a href="" target="_blank" class="text-center mx-auto form-group btn btn-outline-black">Enviar</a>
+                  </p> 
                 </div>
+                
+
               </div>
+        
             </form>
+            
           </div>
 
         </div>
       </div>
+     
     </div> <!-- FIN FORM -->
-
+   
     <div class="col-lg-12 mx-auto contents ">
           <div class="row">
             <div class="col-lg-7 text-center mx-auto">
@@ -225,10 +237,10 @@
                 <div class="custom-accordion" id="accordion_1">
                   <div class="accordion-item">
                     <h2 class="mb-0">
-                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">¿Qué es Recomiendo?</button>
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">¿Qué es Recomiendo?</button>
                     </h2>
 
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion_1">
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion_1">
                       <div class="accordion-body">
                         Recomiendo es el lugar donde encontrarás las reseñas gastronomicas de los instagramers top. Quisimos hacer algo distinto y divertido para que disfrutes de las mejores recomendaciones de comida en un solo lugar. 
                       </div>
@@ -304,7 +316,7 @@
     
       // init Isotope
       
-      var $grid = $('.grilla').isotope({
+      var $grid = $('.papa').isotope({
         // options
         itemSelector: ".influencer-barrio",
         layoutMode: 'fitRows'
