@@ -149,6 +149,13 @@ h4,
   color: #ffffff;
 }
 
+.btn.btn-outline-black.active {
+  border-color: #000000;
+  background: #000000;
+  color: #ffffff;
+}
+
+
 .btn.btn-secondary {
   background: #000000;
   border-color: #000000;
