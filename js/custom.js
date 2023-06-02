@@ -695,7 +695,89 @@ var owlSingleSlider = function () {
 // siteIstotope();
 
 
-var siteIstotope = function() {
+// DROP DOWN var siteIstotope = function() {
+//   var $container = $('#posts').isotope({
+//     itemSelector: '.item',
+//     isFitWidth: true
+//   });
+
+//   $(window).resize(function(){
+//     $container.isotope({
+//       columnWidth: '.col-sm-3'
+//     });
+//   });
+
+//   $container.isotope({ filter: '*' });
+
+//   $('.filter-checkbox').on('change', function() {
+//     var activeFilters = [];
+//     $('.filter-checkbox:checked').each(function() {
+//       var filterValue = $(this).data('filter');
+//       activeFilters.push(filterValue);
+//     });
+
+//     var filterString = activeFilters.join(', ');
+//     $container.isotope({ filter: filterString });
+//   });
+
+//   $container.imagesLoaded().progress(function() {
+//     $container.isotope('layout');
+//   }).done(function() {
+//     $('.gsap-reveal-img').each(function() {
+//       var html = $(this).html();
+//       $(this).html('<div class="reveal-wrap"><span class="cover"></span><div class="reveal-content">' + html + '</div></div>');
+//     });
+
+//     var controller = new ScrollMagic.Controller();
+
+//     var revealImg = $('.gsap-reveal-img');
+
+//     if (revealImg.length) {
+//       var i = 0;
+//       revealImg.each(function() {
+
+//         var cover = $(this).find('.cover'),
+//           revealContent = $(this).find('.reveal-content'),
+//           img = $(this).find('.reveal-content img');
+
+
+//         var tl2 = new TimelineMax();
+//         setTimeout(function() {
+//           tl2
+//             .tl2.set(img, { scale: '1.2', autoAlpha: 1, })
+//             .to(cover, 1, {
+//               marginLeft: '0', ease: Expo.easeInOut, onComplete() {
+//                 tl2.set(revealContent, { autoAlpha: 1 });
+//                 tl2.to(cover, 1, { marginLeft: '102%', ease: Expo.easeInOut });
+//                 tl2.to(img, 2, { scale: '1.0', ease: Linear.easeNone }, '-=2.5');
+//               }
+//             });
+
+//         }, i * 200);
+
+
+//         var scene = new ScrollMagic.Scene({
+//             triggerElement: this,
+//             duration: "0%",
+//             reverse: false,
+//             offset: "-300%",
+//           })
+//           .setTween(tl2)
+//           .addTo(controller);
+
+//         i++;
+//       });
+//     }
+//   });
+
+//   $('.js-filter').on('click', function(e) {
+//     e.preventDefault();
+//     $('#filters').toggleClass('active');
+//   });
+// }
+
+// siteIstotope();
+var siteIsotope = function() {
   var $container = $('#posts').isotope({
     itemSelector: '.item',
     isFitWidth: true
@@ -710,14 +792,34 @@ var siteIstotope = function() {
   $container.isotope({ filter: '*' });
 
   $('.filter-checkbox').on('change', function() {
-    var activeFilters = [];
-    $('.filter-checkbox:checked').each(function() {
-      var filterValue = $(this).data('filter');
-      activeFilters.push(filterValue);
-    });
+    var influencerFilters = $('.influencer:checked').map(function() {
+      return $(this).data('filter');
+    }).get();
 
-    var filterString = activeFilters.join(', ');
+    var barrioFilters = $('.barrio:checked').map(function() {
+      return $(this).data('filter');
+    }).get();
+
+    var filterString = '';
+
+    if (influencerFilters.length > 0 && barrioFilters.length > 0) {
+      filterString = influencerFilters.map(function(influencerFilter) {
+        return barrioFilters.map(function(barrioFilter) {
+          return influencerFilter + barrioFilter;
+        }).join(', ');
+      }).join(', ');
+    } else if (influencerFilters.length > 0) {
+      filterString = influencerFilters.join(', ');
+    } else if (barrioFilters.length > 0) {
+      filterString = barrioFilters.join(', ');
+    }
+
     $container.isotope({ filter: filterString });
+  });
+
+  $('.filter-clear').on('click', function() {
+    $('.filter-checkbox').prop('checked', false);
+    $container.isotope({ filter: '*' });
   });
 
   $container.imagesLoaded().progress(function() {
@@ -740,7 +842,6 @@ var siteIstotope = function() {
           revealContent = $(this).find('.reveal-content'),
           img = $(this).find('.reveal-content img');
 
-
         var tl2 = new TimelineMax();
         setTimeout(function() {
           tl2
@@ -755,25 +856,19 @@ var siteIstotope = function() {
 
         }, i * 200);
 
-
         var scene = new ScrollMagic.Scene({
-            triggerElement: this,
-            duration: "0%",
-            reverse: false,
-            offset: "-300%",
-          })
-          .setTween(tl2)
-          .addTo(controller);
+          triggerElement: this,
+          duration: "0%",
+          reverse: false,
+          offset: "-300%",
+        })
+        .setTween(tl2)
+        .addTo(controller);
 
         i++;
       });
     }
   });
-
-  $('.js-filter').on('click', function(e) {
-    e.preventDefault();
-    $('#filters').toggleClass('active');
-  });
 }
 
-siteIstotope();
+siteIsotope();
