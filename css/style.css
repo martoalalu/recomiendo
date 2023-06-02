@@ -2378,3 +2378,8 @@ figure.dotted-bg:before {
 .filtros {
   margin-bottom: 25px;
 }
+
+.dropdown-menu {
+       max-height: 70vh;
+       overflow:scroll; 
+    }
