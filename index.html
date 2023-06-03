@@ -242,11 +242,15 @@
                   <div class='influencer-barrio'>
                     <div class='item  ${influencerClasses} ${item.neighborhood} ${item.category} col-sm-6 col-md-6 col-lg-4 isotope-mb-2'>
                       <a href='oporto.html' class='portfolio-item ajax-load-page isotope-item ' data-id='1'>
-                        <img src='${item.imgUrl}' class='lazyload img-fluid' alt='Images' style='opacity:1; filter:brightness(45%);' />
+                        <div class='image-container'>
+                        <img src='${item.imgUrl}' class='lazyload img-fluid' alt='Images' />
+                        <div class='gradient-overlay'></div>
+                      </div>
                         <div class='portfolio-item-content'>
                           <h3>${item.name}</h3>
                           <h4></h4>
                         </div>
+                        
                       </a>
                     </div>
                   </div>
@@ -259,6 +263,7 @@
                 gridContainer.innerHTML += gridItem;
               });
             </script>
+            
           </div>
         </div>
       </div>
@@ -487,6 +492,7 @@
         )
     })
   </script>
+ 
 </body>
 
 </html>
