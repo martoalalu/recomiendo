@@ -58,6 +58,8 @@
   <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
   <link rel="stylesheet" href="css/aos.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
 
 
 
@@ -108,82 +110,70 @@
 
       <!-- FILTERS GO HERE -->
 
-      <div class="text-center row" style="margin-bottom: 20px;">
-        <div class="dropdown col-lg-2">
-          <button class="filter-btn btn btn-outline-black dropdown-toggle" type="button" id="influencerDropdown"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Influencer
-          </button>
-          <div class="dropdown-menu" aria-labelledby="influencerDropdown">
+   <div class="text-center row justify-content-md-center">
+    
+  <div class="dropdown col-md-auto col-sm" style="margin-bottom: 10px;">
+    <button class="filter-btn btn btn-outline-black dropdown-toggle" type="button" id="influencerDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Influencer
+    </button>
+    <div class="dropdown-menu" aria-labelledby="influencerDropdown">
+      <script>
+        const influencers = [
+          { className: 'buenospaladaires_', label: '🍲 buenospaladaires_' },
+          { className: 'chicaelectricaa', label: '⚡ chicaelectricaa' },
+          // Add other influencers here
+        ];
+
+        influencers.forEach(influencer => {
+          document.write(`
             <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox influencer" data-filter=".buenospaladaires_" /> 🍲
-              buenospaladaires_
+              <input type="checkbox" class="filter-checkbox influencer" data-filter=".${influencer.className}" /> ${influencer.label}
             </label>
+          `);
+        });
+      </script>
+    </div>
+  </div>
+  <div class="dropdown col-md-auto col-sm" style="margin-bottom: 10px;">
+    <button class="filter-btn btn btn-outline-black dropdown-toggle" type="button" id="barrioDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Barrio
+    </button>
+    <div class="dropdown-menu" aria-labelledby="barrioDropdown">
+      <script>
+        const barrios = [
+          'Balvanera',
+          'Belgrano',
+          'Chacarita',
+          'Coghlan',
+          'Colegiales',
+          'Flores',
+          'Monserrat',
+          'Nuñez',
+          'Palermo',
+          'Parque Avellaneda',
+          'Parque Patricios',
+          'Recoleta',
+          'Retiro',
+          'Villa Crespo',
+          'Villa Gral. Mitre',
+          // Add other barrios here
+        ];
+
+        barrios.forEach(barrio => {
+          const className = barrio.toLowerCase().replace(/\s/g, '');
+          document.write(`
             <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox influencer" data-filter=".chicaelectricaa" /> ⚡
-              chicaelectricaa
+              <input type="checkbox" class="filter-checkbox barrio" data-filter=".${className}" /> ${barrio}
             </label>
-            <!-- Add other influencers here -->
-          </div>
-        </div>
-        <div class="dropdown col-lg-2">
-          <button class="filter-btn btn btn-outline-black dropdown-toggle" type="button" id="barrioDropdown"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Barrio
-          </button>
-          <div class="dropdown-menu" aria-labelledby="barrioDropdown">
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".balvanera" /> Balvanera
-            </label>
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".belgrano" /> Belgrano
-            </label>
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".chacarita" /> Chacarita
-            </label>
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".coghlan" /> Coghlan
-            </label>
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".colegiales" /> Colegiales
-            </label>
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".flores" /> Flores
-            </label>
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".monserrat" /> Monserrat
-            </label>
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".nuñez" /> Nuñez
-            </label>
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".palermo" /> Palermo
-            </label>
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".parqueavellaneda" /> Parque Avellaneda
-            </label>
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".parquepatricios" /> Parque Patricios
-            </label>
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".recloeta" /> Recoleta
-            </label>
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".retiro" /> Retiro
-            </label>
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".villacrespo" /> Villa Crespo
-            </label>
-            <label class="dropdown-item">
-              <input type="checkbox" class="filter-checkbox barrio" data-filter=".villagralmitre" /> Villa Gral. Mitre
-            </label>
-            <!-- Add other barrios here -->
-          </div>
-        </div>
-        <button class="filter-clear btn btn-outline-black col-lg-2" style="
-    padding-right: 10px;
-    padding-left: 10px; width:auto;">Limpiar filtros</button>
-      </div>
+          `);
+        });
+      </script>
+    </div>
+  </div> <div class="col-md-auto col-sm" style="margin-bottom: 20px;">
+  <button class="filter-clear btn btn-outline-black" style="with:0px;">Limpiar filtros</button></div>
+</div> 
+
+
 
 
 
@@ -199,7 +189,7 @@
                 {
                   name: 'La Alacena',
                   imgUrl: 'https://1.bp.blogspot.com/-ETbPPHKfvS8/YHtMJb4AaNI/AAAAAAAAAfE/UqIfDpHpZBQwtSQYeQuN0EZ2oXSUBdWNgCLcBGAsYHQ/s320/pastalacena.png',
-                  influencers: 'chicaelectricaa',
+                  influencers: ['chicaelectricaa'],
                   neighborhood: 'palermo',
                   category: 'restaurante'
                 },
