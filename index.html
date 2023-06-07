@@ -193,7 +193,8 @@
                 return `
                   <div class='influencer-barrio'>
                     <div class='item  ${influencerClasses} ${item.neighborhood} ${item.category} col-sm-6 col-md-6 col-lg-4 isotope-mb-2'>
-                      <a href='oporto.html' class='portfolio-item ajax-load-page isotope-item ' data-id='1'>
+                      <a href='restos/${item.name.replace(/ /g, '_')}.html' class='portfolio-item ajax-load-page isotope-item ' data-id='1'>
+
                         <div class='image-container'>
                         <img src='${item.imgUrl}' class='lazyload img-fluid' alt='Images' />
                         <div class='gradient-overlay'></div>
